@@ -1,0 +1,802 @@
+/* --- GLOBAL RESET & PREMIUM DESIGN VARIABLES --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Luxury Eco Palette */
+    --emerald-green: #1c3d32;     /* Xanh lục bảo sâu lắng, quý phái */
+    --sage-green: #8da399;        /* Xanh xám xô thơm tinh tế */
+    --sage-light: #e6ece9;        /* Tint xô thơm dịu mát dùng cho background nhẹ */
+    --off-white: #fbfbfa;         /* Trắng ngà dịu nhẹ cao cấp làm nền nền tảng */
+    --pure-white: #ffffff;
+    --text-dark: #242e2a;         /* Đen rêu đậm sâu sắc */
+    --text-muted: #65756e;
+    
+    /* Subtle Effects & Shadows (Minimalism Layout) */
+    --smooth-shadow: 0 20px 40px rgba(28, 61, 50, 0.03); /* Blur rộng nhạt tinh tế */
+    --thin-border: 1px solid rgba(28, 61, 50, 0.08);     /* Border 1px mảnh thanh lịch */
+    --border-radius-lg: 12px;
+    --border-radius-sm: 6px;
+    
+    /* Typography */
+    --font-heading: 'Cormorant Garamond', serif;
+    --font-body: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: var(--font-body);
+    color: var(--text-dark);
+    background-color: var(--off-white);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+.container {
+    width: 88%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+.text-center { text-align: center; }
+
+/* --- TYPOGRAPHY PATTERNS --- */
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--emerald-green);
+    letter-spacing: -0.01em;
+}
+
+.section-title {
+    font-size: 2.6rem;
+    margin-bottom: 12px;
+}
+
+.section-desc {
+    font-size: 1rem;
+    color: var(--text-muted);
+    max-width: 580px;
+    margin: 0 auto 50px auto;
+    font-weight: 300;
+}
+
+/* --- BUTTONS (HIGH-END STANDARD) --- */
+.btn {
+    display: inline-block;
+    padding: 14px 32px;
+    border-radius: var(--border-radius-sm);
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: var(--emerald-green);
+    color: var(--pure-white);
+    border: 1px solid var(--emerald-green);
+}
+
+.btn-primary:hover {
+    background-color: transparent;
+    color: var(--emerald-green);
+    transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-dark);
+    border: 1px solid rgba(28, 61, 50, 0.2);
+    margin-left: 20px;
+}
+
+.btn-secondary:hover {
+    border-color: var(--emerald-green);
+    background-color: rgba(28, 61, 50, 0.02);
+    transform: translateY(-2px);
+}
+
+.btn-block {
+    width: 100%;
+    text-align: center;
+}
+
+/* --- HEADER / NAVIGATION --- */
+header {
+    background-color: rgba(251, 251, 250, 0.85);
+    backdrop-filter: blur(15px);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: var(--thin-border);
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 0;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--emerald-green);
+    letter-spacing: 0.02em;
+}
+
+.logo span {
+    font-weight: 400;
+    color: var(--sage-green);
+    font-style: italic;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-size: 0.85rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 10px 20px;
+    transition: color 0.3s;
+}
+
+.nav-links li a:hover {
+    color: var(--sage-green);
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    background: linear-gradient(135deg, rgba(211, 255, 240, 0.8), rgba(46, 139, 87, .9)), url(https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1200&q=80) center / cover;
+    padding: 120px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.hero-tagline {
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--sage-green);
+    display: block;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    line-height: 1.15;
+    margin-bottom: 30px;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 45px;
+    font-weight: 300;
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- INTRO & STATS --- */
+.intro {
+    padding: 100px 0;
+}
+
+.intro-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 40px;
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.stat-item {
+    background: var(--pure-white);
+    padding: 40px 20px;
+    border-radius: var(--border-radius-lg);
+    border: var(--thin-border);
+    box-shadow: var(--smooth-shadow);
+}
+
+.stat-number {
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    color: var(--emerald-green);
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-muted);
+}
+
+.intro-map {
+    background: var(--pure-white);
+    padding: 50px;
+    border-radius: var(--border-radius-lg);
+    border: var(--thin-border);
+    box-shadow: var(--smooth-shadow);
+    text-align: center;
+}
+
+.intro-map h2 {
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.map-placeholder {
+    margin-top: 35px;
+    padding: 25px;
+    background-color: var(--pure-white);
+    border: 1px dashed var(--sage-green);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    color: var(--emerald-green);
+    font-weight: 500;
+}
+
+.map-divider {
+    color: rgba(28, 61, 50, 0.2);
+    margin: 0 15px;
+}
+
+/* --- TRẠM TÍCH ĐIỂM --- */
+.points-section {
+    background-color: var(--pure-white);
+    padding: 100px 0;
+    border-top: var(--thin-border);
+    border-bottom: var(--thin-border);
+}
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+    margin-bottom: 80px;
+}
+.step-card {
+    background: var(--off-white);
+    border: var(--thin-border);
+    padding: 40px 30px;
+    border-radius: var(--border-radius-lg);
+    position: relative;
+    transition: border-color 0.3s ease;
+}
+
+.step-card:hover {
+    border-color: var(--sage-green);
+}
+
+.step-num {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--sage-green);
+    display: block;
+    margin-bottom: 20px;
+}
+
+.step-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    color: var(--emerald-green);
+    margin-bottom: 12px;
+}
+
+.step-card p {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+/* Biểu phí & Bảng quy đổi */
+.conversion-table-wrapper {
+    background: var(--pure-white);
+    border: var(--thin-border);
+    border-radius: var(--border-radius-lg);
+    padding: 45px;
+    box-shadow: var(--smooth-shadow);
+}
+
+.conversion-table-wrapper h3 {
+    font-size: 1.8rem;
+    margin-bottom: 25px;
+}
+
+.conversion-table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+.conversion-table th, 
+.conversion-table td {
+    padding: 18px 20px;
+    border-bottom: 1px solid rgba(28, 61, 50, 0.05);
+    font-size: 0.95rem;
+}
+
+.conversion-table th {
+    background-color: var(--sage-light);
+    color: var(--emerald-green);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+}
+
+.conversion-table td {
+    font-weight: 300;
+}
+
+.conversion-table td.table-point {
+    font-weight: 500;
+    color: var(--emerald-green);
+    text-align: right;
+}
+
+/* --- HIGH-END PRODUCT SHOP --- */
+.shop {
+    padding: 100px 0;
+}
+
+.category-group {
+    margin-bottom: 80px;
+}
+
+.category-heading {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    border-bottom: var(--thin-border);
+    padding-bottom: 15px;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.product-card {
+    background: var(--pure-white);
+    border: var(--thin-border);
+    border-radius: var(--border-radius-lg);
+    overflow: hidden;
+    box-shadow: var(--smooth-shadow);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-4px);
+}
+
+.product-card.highlight {
+    border: 1px solid var(--emerald-green);
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: var(--emerald-green);
+    color: var(--pure-white);
+    padding: 6px 14px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    border-radius: var(--border-radius-sm);
+    z-index: 10;
+}
+
+.product-img-wrapper {
+    background-color: var(--sage-light);
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.product-img-placeholder {
+    font-family: var(--font-heading);
+    font-style: italic;
+    color: var(--sage-green);
+    font-size: 1.5rem;
+}
+
+.product-info {
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.product-info h4 {
+    font-family: var(--font-heading);
+    font-size: 1.6rem;
+    color: var(--emerald-green);
+    margin-bottom: 12px;
+}
+
+.status {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 25px;
+    flex-grow: 1;
+}
+
+.price-box {
+    border-top: 1px dashed rgba(28, 61, 50, 0.1);
+    padding-top: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: baseline;
+}
+
+.price-value {
+    font-family: var(--font-heading);
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--emerald-green);
+    line-height: 1;
+}
+
+.price-unit {
+    font-size: 0.85rem;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-left: 8px;
+    text-transform: uppercase;
+}
+
+.btn-buy {
+    background: transparent;
+    color: var(--emerald-green);
+    border: 1px solid var(--emerald-green);
+    padding: 12px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    border-radius: var(--border-radius-sm);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn-buy:hover {
+    background: var(--emerald-green);
+    color: var(--pure-white);
+}
+
+/* --- GREEN HUB --- */
+.green-hub {
+    padding: 40px 0 100px 0;
+}
+
+.hub-block {
+    background: var(--pure-white);
+    padding: 40px;
+    border-radius: var(--border-radius-lg);
+    border: var(--thin-border);
+    box-shadow: var(--smooth-shadow);
+    margin-bottom: 40px;
+}
+
+.hub-title {
+    font-size: 1.8rem;
+    margin-bottom: 8px;
+}
+
+.hub-subtitle {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    font-weight: 300;
+    margin-bottom: 35px;
+}
+
+.challenge-box {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+}
+
+.challenge-card {
+    background: var(--off-white);
+    border: var(--thin-border);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+    position: relative;
+}
+
+.challenge-card.completed {
+    opacity: 0.6;
+}
+
+.bonus-tag {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--emerald-green);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.challenge-card h4 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 12px;
+    max-width: 75%;
+}
+
+.challenge-card p {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-weight: 300;
+    margin-bottom: 25px;
+}
+
+.btn-mini {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--emerald-green);
+    color: var(--emerald-green);
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding-bottom: 2px;
+    cursor: pointer;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.btn-mini:disabled {
+    border-color: transparent;
+    color: var(--text-muted);
+    cursor: not-allowed;
+}
+
+.hub-flex-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
+}
+
+.leaderboard-list {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.leaderboard-list li {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(28, 61, 50, 0.05);
+}
+
+.rank {
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    font-style: italic;
+    color: var(--sage-green);
+    margin-right: 20px;
+    width: 20px;
+}
+
+.school-name {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    font-weight: 400;
+}
+
+.school-points {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--emerald-green);
+}
+
+.diary-card {
+    background: var(--sage-light);
+    padding: 30px;
+    border-radius: var(--border-radius-lg);
+}
+
+.diary-text {
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--emerald-green);
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.diary-author {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--text-muted);
+    display: block;
+    text-align: right;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* --- CONTACT / COOPERATION FORM --- */
+.contact-section {
+    background-color: var(--sage-light);
+    padding: 100px 0;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 60px;
+    align-items: center;
+}
+
+.contact-text h2 {
+    font-size: 3rem;
+    line-height: 1.15;
+    margin-bottom: 25px;
+}
+
+.contact-text p {
+    color: var(--text-muted);
+    font-weight: 300;
+}
+
+.contact-form {
+    background: var(--pure-white);
+    padding: 50px;
+    border-radius: var(--border-radius-lg);
+    border: var(--thin-border);
+    box-shadow: var(--smooth-shadow);
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    color: var(--text-dark);
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid rgba(28, 61, 50, 0.15);
+    border-radius: var(--border-radius-sm);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    background-color: var(--off-white);
+    color: var(--text-dark);
+    transition: border-color 0.3s;
+}
+
+.form-group input:focus, 
+.form-group select:focus, 
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--emerald-green);
+}
+
+/* --- FOOTER --- */
+footer {
+    background-color: var(--emerald-green);
+    color: var(--pure-white);
+    padding: 80px 0 30px 0;
+}
+
+footer h4 {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    letter-spacing: 0.02em;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 50px;
+    margin-bottom: 60px;
+}
+
+.footer-about p {
+    font-size: 0.9rem;
+    color: var(--sage-green);
+    font-weight: 300;
+}
+
+.footer-links ul {
+    list-style: none;
+}
+
+.footer-links ul li a {
+    color: var(--sage-green);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: inline-block;
+    margin-bottom: 12px;
+    font-weight: 300;
+    transition: color 0.3s;
+}
+
+.footer-links ul li a:hover {
+    color: var(--pure-white);
+}
+
+.footer-social .social-icons {
+    font-size: 0.9rem;
+    color: var(--sage-green);
+    font-weight: 300;
+}
+
+.footer-social .social-icons a {
+    color: var(--pure-white);
+    text-decoration: none;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+    padding-top: 30px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--sage-green);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+}
+
+/* --- RESPONSIVE OPTIMIZATION --- */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .hero h1 {
+        font-size: 2.6rem;
+    }
+    .btn-secondary {
+        margin-left: 0;
+        margin-top: 15px;
+        display: block;
+    }
+    .conversion-table-wrapper, .contact-form {
+        padding: 25px;
+    }
+}
